@@ -1,0 +1,132 @@
+# TE-AMO
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Mi Niña Bonita 💖</title>
+    <style>
+        body {
+            background-color: #ffe4e1; /* Rosa suave */
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            overflow-x: hidden;
+            text-align: center;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(255, 105, 180, 0.3);
+            max-width: 90%;
+            z-index: 10;
+        }
+
+        h1 { color: #ff1493; }
+        p { color: #db7093; font-size: 1.2rem; line-height: 1.6; }
+
+        /* Estilo Tulipanes */
+        .tulip-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .tulip {
+            position: relative;
+            width: 50px;
+            height: 150px;
+        }
+
+        .flower {
+            width: 40px;
+            height: 50px;
+            background-color: #ff69b4;
+            border-radius: 50% 50% 50% 50% / 80% 80% 20% 20%;
+            position: absolute;
+            top: 0;
+        }
+
+        .stem {
+            width: 5px;
+            height: 100px;
+            background-color: #32cd32;
+            position: absolute;
+            top: 45px;
+            left: 17px;
+        }
+
+        /* Botón Interactivo */
+        .btn-love {
+            background-color: #ff1493;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: transform 0.3s;
+            margin-top: 20px;
+        }
+
+        .btn-love:hover { transform: scale(1.1); background-color: #ff69b4; }
+
+        /* Corazones flotantes */
+        .heart {
+            position: fixed;
+            color: #ff69b4;
+            font-size: 20px;
+            animation: float 4s linear infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>¡Hola Mi Niña Bonita! 👑</h1>
+        <div class="tulip-container">
+            <div class="tulip"><div class="flower"></div><div class="stem"></div></div>
+            <div class="tulip"><div class="flower" style="background-color: #ff1493;"></div><div class="stem"></div></div>
+            <div class="tulip"><div class="flower"></div><div class="stem"></div></div>
+        </div>
+        
+        <p id="mensaje-amor">Te hice esta sorpresita porque no dejo de pensar en ti...</p>
+        
+        <button class="btn-love" onclick="mostrarSorpresa()">¡Haz clic aquí, amor! ❤️</button>
+    </div>
+
+    <script>
+        function mostrarSorpresa() {
+            const msj = document.getElementById('mensaje-amor');
+            msj.innerHTML = "Eres lo más hermoso de mi vida. Te extraño cada segundo que no estoy a tu lado y mi amor por ti crece más y más. ¡Eres mi mundo entero! 🌷💖";
+            
+            // Crear corazones
+            for(let i=0; i<30; i++) {
+                setTimeout(createHeart, i * 100);
+            }
+        }
+
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = (Math.random() * 2 + 3) + 's';
+            document.body.appendChild(heart);
+            setTimeout(() => { heart.remove(); }, 4000);
+        }
+    </script>
+</body>
+</html>
